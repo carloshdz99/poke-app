@@ -34,8 +34,11 @@ $poke-app-theme: mat.define-light-theme((color: (primary: $poke-app-primary,
 /* You can add global styles to this file, and also import other style files */
 
 :root {
+  --font-family-primary: "Poppins";
   --primary-blue: #185A7D;
   --neutro-gray: #868686;
+
+  --primary-blue-button: #01426A;
 }
 
 html,
@@ -46,6 +49,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .layout-column {
@@ -61,20 +65,35 @@ body {
   display: flex !important;
   flex-direction: row !important;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding: {
+    top: 20px;
+    left: 150px;
+    right: 150px;
+  };
+}
+
+.layout-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-gap-32 {
+  gap: 32px;
 }
 
 h2 {
   color: var(--primary-blue);
-  size: 35px;
+  size: 45px;
   line-height: 52.5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+}
 
-  .mat-icon {
-    font-size: 32px;
-    line-height: 1;
-  }
+h3 {
+  color: var(--primary-blue);
+  size: 40px;
+  font-weight: 400;
 }
 
 .text-info {

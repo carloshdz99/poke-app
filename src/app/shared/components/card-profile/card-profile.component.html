@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Imagén de perfil</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="layout-column">
+        <div class="profile-div">
+            <img [src]="imageUrl" class="profile-image">
+        </div>
+
+        <div class="input-container">
+            <label class="input-file">
+                <span class="input-label">Adjunta una foto</span>
+                <input type="file">
+                <mat-icon>cloud_upload</mat-icon>
+            </label>
+        </div>
+    </mat-card-content>
+    <br>
+</mat-card>

@@ -1,0 +1,40 @@
+.greeting-title {
+    // margin: {
+    //     left: 40px;
+    //     top: 40px;
+    // };
+    display: flex;
+    align-items: flex-start;
+
+    .mat-icon {
+        font-size: 2rem;
+        margin-right: 10px;
+        color: var(--primary-blue);
+    }
+
+    .text-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-info h2,
+    .text-info h3,
+    .text-info p {
+        margin: 0;
+    }
+
+    .text-info h2 {
+        line-height: 1.2;
+    }
+
+    .text-info p {
+        margin-top: 4px;
+    }
+}
+
+.greetin-space {
+    margin: {
+        left: 40px;
+        top: 40px
+    };
+}

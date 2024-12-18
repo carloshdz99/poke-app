@@ -1,85 +1,27 @@
-.mat-mdc-card {
-    width: 350px;
-    background-color: #ffc600;
-    border-radius: 50px;
+// form styles
+form {
+    margin-top: 30px;
+    width: 100%;
+}
 
-    .mat-mdc-card-header {
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+// custom mat button styles
+.mat-mdc-raised-button {
+    color: #ffffff !important;
+    background-color: var(--primary-blue-button) !important;
 
-        .mat-card-title {
-            text-align: center;
-        }
-    }
+    padding: {
+        left: 10%;
+        right: 10%
+    };
 
-    .mat-mdc-card-content {
-        // align-items: center;
-        // display: flex;
-        // flex-direction: column;
-        // box-sizing: border-box;
-        // justify-content: center;
-        // align-items: center;
+    
+    border-radius: 10px;
+}
 
-        // profile image styles
-        .profile-div {
-            margin-top: 50px;
-            margin-bottom: 50px;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            border: 10px solid #ffffff;
+.example-full-width {
+    width: 100%;
+}
 
-            .profile-image {
-                border-radius: 50%;
-                object-fit: cover;
-                background-color: #e7eff5;
-            }
-        }
-
-        // input file styles
-        .input-container {
-            width: 80%;
-
-            .input-file {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-                height: 60px;
-                background-color: #fff;
-                border: 2px dashed #2C85BC;
-                border-radius: 8px;
-                padding: 0 12px;
-                cursor: pointer;
-                position: relative;
-
-                .input-label {
-                    font-size: 16px;
-                    color: #2C85BC;
-                }
-
-                .mat-icon {
-                    font-size: 24px;
-                    color: #2C85BC;
-                }
-            }
-
-            .input-file input[type="file"] {
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                height: 100%;
-                cursor: pointer;
-                left: 0;
-                top: 0;
-            }
-
-        }
-    }
+:host ::ng-deep .mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 15px;
 }

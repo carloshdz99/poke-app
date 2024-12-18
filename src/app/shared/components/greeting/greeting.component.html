@@ -1,0 +1,11 @@
+<div [class]="classListGreetings">
+    <div class="greeting-title">
+        @if (icon) {<mat-icon>{{icon}}</mat-icon>}
+
+        <div class="text-info">
+            @if (h2Title) {<h2>{{h2Title}}</h2>}
+            @if (h3Title) {<h3>{{h3Title}}</h3>}
+            @if (text) {<p>{{text}}</p>}
+        </div>
+    </div>
+</div>
