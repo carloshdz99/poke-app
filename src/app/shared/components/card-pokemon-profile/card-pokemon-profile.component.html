@@ -1,0 +1,23 @@
+<div class="poke-container">
+    <div class="poke-image-container">
+        <img [src]="imageUrl"
+            class="poke-image">
+
+        <div class="pokemon-left-data">
+            <label>{{pokemon.name}}</label>
+            <p>{{getAbilities(pokemon.types)}}</p>
+        </div>
+    </div>
+
+    <div class="poke-stats">
+        @for (s of pokemon.stats; track s) {
+        <div class="poke-stats-item">
+            <p>{{s.stat.name}}</p>
+            <div class="poke-bar">
+                <div class="poke-bar-fill" [style.width.%]="s.base_stat" [ngClass]="getPokemonTypeColor()">
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

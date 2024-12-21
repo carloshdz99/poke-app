@@ -37,8 +37,9 @@ $poke-app-theme: mat.define-light-theme((color: (primary: $poke-app-primary,
   --font-family-primary: "Poppins";
   --primary-blue: #185A7D;
   --neutro-gray: #868686;
-
+  --primary-yellow: #ffc600;
   --primary-blue-button: #01426A;
+  --primary-white: #F2F2F2;
 }
 
 html,
@@ -99,3 +100,8 @@ h3 {
 .text-info {
   color: var(--neutro-gray);
 }
+
+.example-full-width {
+  width: 100%;
+}
+

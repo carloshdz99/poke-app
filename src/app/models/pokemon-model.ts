@@ -1,9 +1,15 @@
 export interface Pokemon {
     id?: number;
-    name: string;
+    name?: string;
     url?: string;
     abilities?: Abilities[];
-    stats?: Stats[]
+    stats?: Stats[];
+    types?: Types[]
+}
+
+interface Types {
+    slot: number;
+    type: { name: string }
 }
 
 interface Abilities {
@@ -12,14 +18,19 @@ interface Abilities {
         url: string;
     }
     is_hidden: boolean;
-    slot: 1;
+    slot: number;
 }
 
 interface Stats {
     base_stat: number;
-    effort: 1;
+    effort: number;
     stat: {
         name: string;
         url: string;
     }
+}
+
+export interface PokemonList {
+    count: number;
+    results: Pokemon[]
 }

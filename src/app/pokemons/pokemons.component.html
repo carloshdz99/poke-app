@@ -6,5 +6,37 @@
         <div>
             <app-card-profile></app-card-profile>
         </div>
+
+        <div>
+            <div class="layout-column">
+                <app-greeting [h3Title]="'Pokémon'"
+                    [text]="'Selecciona 3 Pokémon para que sean parte de tu equipo'"></app-greeting>
+
+                <mat-form-field class="poke-search-input" appearance="outline" density="compact">
+                    <mat-icon matPrefix>search</mat-icon>
+                    <mat-label>Buscar por índice, nombre...</mat-label>
+                    <input matInput placeholder="Buscar por índice, nombre..." (input)="onSearchPokemon($event)">
+                </mat-form-field>
+
+                <swiper-container class="swiper-container">
+                    @for (p of pokemonsListofList; track p) {
+                    <swiper-slide>
+                        <div class="slide-custom">
+                            <div class="pokemon-grid">
+                                @for (pokes of p; track pokes) {
+                                <app-card-pokemon (pokeSelectedEmmitt)="onSelectedPokemon($event)"
+                                    [bgClass]="bgSelectedPokemon(pokes.name || '')"
+                                    [name]="pokes.name"></app-card-pokemon>
+                                }
+                            </div>
+                        </div>
+                    </swiper-slide>
+                    }
+                </swiper-container>
+
+                <button mat-raised-button (click)="onContinue()"
+                    [ngClass]="{'button-active': pokemonsSelected.length === 3}" [disabled]="pokemonsSelected.length !== 3">Guardar</button>
+            </div>
+        </div>
     </div>
 </div>
