@@ -1,0 +1,27 @@
+<div class="layout-colum layout-gap-32">
+
+
+    <div class="layout-row">
+        <div class="poke-left">
+            <div class="poke-name-edit">
+                <h2>Nombre</h2>
+                <button mat-stroked-button class="custom-button-stroked"><mat-icon>edit</mat-icon> Editar Perfil</button>
+            </div>
+            <app-card-profile></app-card-profile>
+        </div>
+
+        <div class="poke-right">
+            <div class="layout-column">
+                <div class="poke-title-edit">
+                    <app-greeting [h3Title]="'Mis Pokémon'"></app-greeting>
+                    <button mat-stroked-button><mat-icon>edit</mat-icon> Editar</button>
+                </div>
+
+                <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">
+                    <app-card-pokemon-profile *cdkVirtualFor="let poke of pokemonList"
+                        [pokeId]="poke"></app-card-pokemon-profile>
+                </cdk-virtual-scroll-viewport>
+            </div>
+        </div>
+    </div>
+</div>

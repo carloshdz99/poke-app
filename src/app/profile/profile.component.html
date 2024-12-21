@@ -1,6 +1,6 @@
 <div class="layout-colum layout-gap-32">
-    <app-greeting [classListGreetings]="'greetin-space'" [h2Title]="'¡Hola! Configuremos tu perfil'" [text]="'Queremos conocerte mejor.'"
-        [icon]="'chevron_left'"></app-greeting>
+    <app-greeting [classListGreetings]="'greetin-space'" [h2Title]="'¡Hola! Configuremos tu perfil'"
+        [text]="'Queremos conocerte mejor.'" [icon]="'chevron_left'"></app-greeting>
 
     <div class="layout-row layout-gap-32">
         <div>
@@ -12,12 +12,13 @@
                 <app-greeting [h3Title]="'Tu información'"
                     [text]="'Completa la siguiente información para completar tu perfil'"></app-greeting>
 
-                <form class="layout-column">
+                <form class="layout-column" #pokeProfileForm="ngForm">
 
                     <!-- NAME INPUT -->
                     <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Nombre</mat-label>
-                        <input matInput placeholder="Nombre" required>
+                        <input matInput [(ngModel)]="name" name="name" placeholder="Nombre" required
+                            #nameModel="ngModel" #nameTemplate>
                     </mat-form-field>
 
                     <!-- HOBBY INPUT -->
@@ -25,7 +26,7 @@
                         <mat-label>Pasatiempo favorito</mat-label>
                         <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
                             [matAutocomplete]="auto">
-                        <mat-autocomplete #auto="matAutocomplete">
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectedHobby($event)">
                             @for (option of filteredOptions | async; track option) {
                             <mat-option [value]="option">{{option}}</mat-option>
                             }
@@ -35,18 +36,22 @@
                     <!-- BIRTHDAY INPUT -->
                     <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Cumpleaños</mat-label>
-                        <input matInput [matDatepicker]="picker1" required>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
+                        <input matInput [matDatepicker]="picker" [formControl]="birthDay" required>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker (closed)="onSelectedBirthDay()"></mat-datepicker>
                     </mat-form-field>
 
                     <!-- IDENTIFICATION INPUT -->
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>DUI</mat-label>
-                        <input matInput placeholder="DUI" required>
+                        <mat-label>{{ofAge ? 'DUI' : 'Documento'}}</mat-label>
+                        <input matInput [(ngModel)]="documentIdentification" name="documentIdentification"
+                            (input)="onWriteDUI()" [placeholder]="ofAge ? 'DUI' : 'Documento'" [required]="ofAge"
+                            maxlength="10" #documentIdentificationModel="ngModel" #documentIdentificationTemplate>
                     </mat-form-field>
 
-                    <button mat-raised-button (click)="onContinue()">Continuar</button>
+                    <button mat-raised-button color="primary-blue-button" (click)="onContinue()"
+                        [ngClass]="{'button-active': pokeProfileForm.form.valid}"
+                        [disabled]="!pokeProfileForm.form.valid">Continuar</button>
                 </form>
             </div>
         </div>
