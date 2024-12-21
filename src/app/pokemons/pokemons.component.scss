@@ -20,6 +20,7 @@
 .swiper-container {
     width: 700px;
     height: 600px;
+    background-color: transparent;
 }
 
 .slide-custom {
@@ -45,6 +46,10 @@
     .mat-icon {
         color: var(--primary-blue);
     }
+}
+
+.poke-right {
+    transform: translateY(-5%);
 }
 
 

@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 })
 export class PokemonProfileComponent implements OnInit {
   pokemonList: string[] = []
+  name?: string
 
   constructor(private router: Router) {
   }
@@ -24,6 +25,8 @@ export class PokemonProfileComponent implements OnInit {
   ngOnInit(): void {
     const pokes = localStorage.getItem('profile_data_poke_selected')
     if (pokes) this.pokemonList = pokes.split(',')
+
+      if (localStorage.getItem('profile_data_name')) this.name = localStorage.getItem('profile_data_name') as string
   }
 
   async onEditPokemons() {

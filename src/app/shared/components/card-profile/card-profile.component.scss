@@ -57,8 +57,10 @@
 
             .profile-image {
                 border-radius: 50%;
-                object-fit: cover;
+                width: 200px;
+                height: 200px;
                 background-color: #e7eff5;
+                object-fit: cover;
             }
         }
 
