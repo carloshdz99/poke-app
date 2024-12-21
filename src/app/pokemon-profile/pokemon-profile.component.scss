@@ -30,6 +30,12 @@
     align-items: center;
     width: 100%;
 
+    .poke-profile-name {
+        font-weight: 700;
+        color: #000000;
+        font-size: 30px;
+    }
+
     button {
         border-color: var(--primary-blue);
         color: var(--primary-blue);

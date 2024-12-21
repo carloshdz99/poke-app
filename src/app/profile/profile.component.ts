@@ -56,11 +56,11 @@ export class ProfileComponent implements OnInit {
   // form values
   name: string = ''
   documentIdentification: string = ''
-  birthDay = new FormControl(null);
+  birthDay = new FormControl<Date | null>(null);
   hobby: string = ''
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -68,6 +68,16 @@ export class ProfileComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
+    if (localStorage.getItem('profile_data_name')) this.name = localStorage.getItem('profile_data_name') as string
+    if (localStorage.getItem('profile_data_document')) this.documentIdentification = localStorage.getItem('profile_data_document') as string
+    if (localStorage.getItem('profile_data_birthday')) {
+      this.birthDay.setValue(dayjs(localStorage.getItem('profile_data_birthday')).toDate())
+    }
+
+    if (localStorage.getItem('profile_data_hobby')) {
+      this.myControl.setValue(localStorage.getItem('profile_data_hobby'))
+    }
   }
 
   private _filter(value: string): string[] {

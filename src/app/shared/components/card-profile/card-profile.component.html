@@ -1,6 +1,19 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title [ngClass]="{'title-name': name}">{{ name || 'Imagén de perfil' }}</mat-card-title>
+        @switch (currentUrl) {
+            @case('profile') {
+                <mat-card-title >Imagén de perfil</mat-card-title>
+            }
+            @case('pokemons') {
+                <mat-card-title [ngClass]="{'title-name': name}">{{ name || 'Imagén de perfil' }}</mat-card-title>
+            }
+            @case('pokemon-profile') {
+                <div class="pokemon-profile-trainer">
+                    <span class="profile-title">Entrenador </span>
+                    <img src="../../../../assets/star.png">
+                </div>
+            }
+        }
     </mat-card-header>
     <mat-card-content class="layout-column">
         <div class="profile-div">
@@ -8,40 +21,71 @@
         </div>
 
         <div class="input-container">
-            @if (age || documentIdentification || hobby) {
-            <div class="layout-column">
-                @if (hobby){
-                <label class="profile-data-label">
-                    <span class="profile-title">Pasatiempo: </span>
-                    <span>{{hobby}}</span>
-                </label>
+            @switch (currentUrl) {
+                @case('profile') {
+                    <label class="input-file">
+                        <span class="input-label">Adjunta una foto</span>
+                        <input type="file" (change)="onProfileImageSelected($event)" accept="image/*">
+                        @if(this.imageUrl) {
+                        <mat-icon class="warn-icon">restore_from_trash</mat-icon>
+                        } @else {
+                        <mat-icon class="primary-icon">cloud_upload</mat-icon>
+                        }
+        
+                    </label>
                 }
-
-                @if (age){
-                <label class="profile-data-label">
-                    <span class="profile-title">Edad: </span>
-                    <span>{{age}}</span>
-                </label>
+                @case('pokemons') {
+                    @if (age || documentIdentification || hobby) {
+                        <div class="layout-column">
+                            @if (hobby){
+                            <label class="profile-data-label">
+                                <span class="profile-title">Pasatiempo: </span>
+                                <span>{{hobby}}</span>
+                            </label>
+                            }
+            
+                            @if (age){
+                            <label class="profile-data-label">
+                                <span class="profile-title">Edad: </span>
+                                <span>{{age}}</span>
+                            </label>
+                            }
+            
+                            @if (documentIdentification){
+                            <label class="profile-data-label">
+                                <span class="profile-title">{{documentType}}: </span>
+                                <span>{{documentIdentification}}</span>
+                            </label>
+                            }
+                        </div>
+                    }
                 }
-
-                @if (documentIdentification){
-                <label class="profile-data-label">
-                    <span class="profile-title">{{documentType}}: </span>
-                    <span>{{documentIdentification}}</span>
-                </label>
+                @case('pokemon-profile') {
+                    @if (age || documentIdentification || hobby) {
+                        <div class="layout-column">
+                            @if (hobby){
+                            <label class="profile-data-label">
+                                <span class="profile-title">Pasatiempo: </span>
+                                <span>{{hobby}}</span>
+                            </label>
+                            }
+            
+                            @if (age){
+                            <label class="profile-data-label">
+                                <span class="profile-title">Edad: </span>
+                                <span>{{age}}</span>
+                            </label>
+                            }
+            
+                            @if (documentIdentification){
+                            <label class="profile-data-label">
+                                <span class="profile-title">{{documentType}}: </span>
+                                <span>{{documentIdentification}}</span>
+                            </label>
+                            }
+                        </div>
+                    }
                 }
-            </div>
-            } @else {
-            <label class="input-file">
-                <span class="input-label">Adjunta una foto</span>
-                <input type="file" (change)="onProfileImageSelected($event)" accept="image/*">
-                @if(this.imageUrl) {
-                <mat-icon class="warn-icon">restore_from_trash</mat-icon>
-                } @else {
-                <mat-icon class="primary-icon">cloud_upload</mat-icon>
-                }
-
-            </label>
             }
 
         </div>

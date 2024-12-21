@@ -40,6 +40,8 @@ export class PokemonsComponent implements OnInit {
       this.pokemons = (await this.pokeService.getAll()).results
 
       this.pokemonsListofList = this.pokemonGroups(this.pokemons)
+
+      if (localStorage.getItem('profile_data_poke_selected')) this.pokemonsSelected = localStorage.getItem('profile_data_poke_selected')?.split(',') || []
     } catch (e) {
       console.log(e);
     }
