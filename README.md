@@ -1,27 +1,40 @@
-# PokeApp
+# Proyecto Angular con Material 17
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+## Descripción
+La solución fue realizada usando **Angular 17** y **Material 17**.
 
-## Development server
+## Paquetes Adicionales Utilizados
+- **Swiper**: Solicitado en la prueba.
+- **Material Scrolling**: Solicitado en la prueba.
+- **DayJs**: Manejo de fechas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instrucciones para Hacer Funcionar el Proyecto
 
-## Code scaffolding
+1. **Instalar Node.js y NPM**
+   - Descarga e instala Node.js desde [este enlace](https://nodejs.org/es/download/package-manager) (Seleccionar versión 20).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Instalar Angular CLI (versión 17)**
+   ```bash
+   npm install -g @angular/cli@17
+   ```
 
-## Build
+3. **Instalar los Paquetes Necesarios**
+   - Ejecuta el siguiente comando en el directorio raíz del proyecto para instalar todas las dependencias:
+     ```bash
+     npm install
+     ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **Ejecutar el Proyecto**
+   - Usa el siguiente comando para iniciar el servidor de desarrollo:
+     ```bash
+     npm run start
+     ```
 
-## Running unit tests
+## Comentarios Adicionales
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Swiper**:
+  - Utilizado en el componente `pokemons`, ubicado en el directorio `app`.
 
-## Running end-to-end tests
+- **Material Scrolling**:
+  - Implementado en el componente `pokemon-profile`, ubicado en el directorio `app`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

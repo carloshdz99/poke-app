@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <img src="../assets/logo.png" class="logo" alt="logo">
+    @if (currentUrl === 'pokemon-profile') {
+      <div class="sub-toolbar">
+        <button mat-stroked-button>{{name}}<mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon></button>
+        <mat-icon>search</mat-icon>
+      </div>
+    }
+</mat-toolbar>

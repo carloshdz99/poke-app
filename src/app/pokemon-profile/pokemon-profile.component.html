@@ -4,8 +4,8 @@
     <div class="layout-row">
         <div class="poke-left">
             <div class="poke-name-edit">
-                <h2>Nombre</h2>
-                <button mat-stroked-button class="custom-button-stroked"><mat-icon>edit</mat-icon> Editar Perfil</button>
+                <h2 class="poke-profile-name">¡Nombre!</h2>
+                <button mat-stroked-button class="custom-button-stroked" (click)="onEditProfile()"><mat-icon>edit</mat-icon> Editar Perfil</button>
             </div>
             <app-card-profile></app-card-profile>
         </div>
@@ -14,7 +14,7 @@
             <div class="layout-column">
                 <div class="poke-title-edit">
                     <app-greeting [h3Title]="'Mis Pokémon'"></app-greeting>
-                    <button mat-stroked-button><mat-icon>edit</mat-icon> Editar</button>
+                    <button mat-stroked-button (click)="onEditPokemons()"><mat-icon>edit</mat-icon> Editar</button>
                 </div>
 
                 <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">

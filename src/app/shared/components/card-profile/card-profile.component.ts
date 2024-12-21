@@ -2,6 +2,13 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { ActivatedRoute } from '@angular/router';
+
+export enum CurrentUrl {
+  profile = "profile",
+  pokemons = "pokemons",
+  pokemonprofile = "pokemon-profile"
+}
 
 @Component({
   selector: 'app-card-profile',
@@ -23,7 +30,12 @@ export class CardProfileComponent implements OnInit {
   documentType?: string
   age?: string
 
+  currentUrl: CurrentUrl = CurrentUrl.profile
+
+  constructor(private activeRoute: ActivatedRoute) { }
+
   ngOnInit(): void {
+    this.currentUrl = this.activeRoute.snapshot.url.join('/') as CurrentUrl
     if (localStorage.getItem('profileImage')) this.imageUrl = localStorage.getItem('profileImage') as string
 
     if (localStorage.getItem('profile_data_name')) this.name = localStorage.getItem('profile_data_name') as string
