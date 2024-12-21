@@ -14,7 +14,7 @@
         <div class="poke-stats-item">
             <p>{{s.stat.name}}</p>
             <div class="poke-bar">
-                <div class="poke-bar-fill" [style.width.%]="s.base_stat" [ngClass]="getPokemonTypeColor()">
+                <div class="poke-bar-fill" [style.width.%]="getPercetangeStat(s.stat.name, s.base_stat)" [ngClass]="getPokemonTypeColor()">
                 </div>
             </div>
         </div>

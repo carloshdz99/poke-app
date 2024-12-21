@@ -4,7 +4,7 @@
     <div class="layout-row">
         <div class="poke-left">
             <div class="poke-name-edit">
-                <h2 class="poke-profile-name">¡Nombre!</h2>
+                <h2 class="poke-profile-name">{{ name || '¡Nombre!'}}</h2>
                 <button mat-stroked-button class="custom-button-stroked" (click)="onEditProfile()"><mat-icon>edit</mat-icon> Editar Perfil</button>
             </div>
             <app-card-profile></app-card-profile>

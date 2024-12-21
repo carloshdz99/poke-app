@@ -37,7 +37,7 @@ export class CardPokemonProfileComponent implements OnChanges {
   }
 
   getAbilities(abilities: any[] = []): string {
-    const abilitiesName = abilities.map((i) => (i.type?.name || ''))    
+    const abilitiesName = abilities.map((i) => (i.type?.name || ''))
     return abilitiesName.join('/')
   }
 
@@ -76,5 +76,31 @@ export class CardPokemonProfileComponent implements OnChanges {
     }
 
     return 'pokemon-normal'
+  }
+
+  getPercetangeStat(stat: string, base_stat: number) {
+    let widthValue: number = 0
+    switch (stat) {
+      case 'hp':
+        widthValue = Math.round((base_stat / 255) * 100)
+        break;
+      case 'attack':
+        widthValue = Math.round((base_stat / 190) * 100)
+        break;
+      case 'defense':
+        widthValue = Math.round((base_stat / 230) * 100)
+        break;
+      case 'special-attack':
+        widthValue = Math.round((base_stat / 194) * 100)
+        break;
+      case 'special-defense':
+        widthValue = Math.round((base_stat / 230) * 100)
+        break;
+      case 'speed':
+        widthValue = Math.round((base_stat / 180) * 100)
+        break;
+    }
+
+    return widthValue;
   }
 }
